@@ -20,9 +20,9 @@ class Solution:
     def get_minimizer(self, iterations: int, learning_rate: float, init: int) -> float:
         
         weight = init;
-        # df_dx = 
         for _ in range(iterations):
-            
+
+            #update weight by learning rate * df/dx
             weight = weight - learning_rate * (2 * weight)
 
 
