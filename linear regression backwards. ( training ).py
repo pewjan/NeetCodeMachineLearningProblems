@@ -21,12 +21,16 @@ class Solution:
     ) -> NDArray[np.float64]:
 
         # matrix multiplcation of X to weights then we take the derivative and subtract it form the current weight 
-
+        #loop through how many iterations to run the gradient descent
         for _ in range(num_iterations):
+            #temp np array which we use to update the weights
             tempWeights = np.array(initial_weights)
             for i in range(len(initial_weights)):
 
+                #get the predicted Y value from the weights 
                 predicted = self.get_model_prediction(X, initial_weights);
+
+                #gradient descent
                 weight = initial_weights[i] - self.learning_rate * self.get_derivative(predicted, Y, len(X), X, i);
                 tempWeights[i] = weight;
             initial_weights = tempWeights;
